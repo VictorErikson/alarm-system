@@ -1,0 +1,13 @@
+<main>
+    <div class="login-popup">
+        @if (showLogin) {
+            <h2>Välkommen Tillbaka</h2>
+            <div class="change"><h3>Har du inget konto ännu?</h3><button type="button" (click)="toggleForm()">Registrera dig</button></div>
+            <app-login></app-login>
+        }@else {
+            <h2>Välkommen</h2>
+            <div class="change"><h3>Har du redan ett konto?</h3><button type="button" (click)="toggleForm()">Logga in</button></div>
+            <app-signup></app-signup>
+        }
+    </div>
+</main>
