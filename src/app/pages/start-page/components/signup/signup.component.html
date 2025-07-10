@@ -1,9 +1,159 @@
+<!-- signup.component.html -->
 <form (ngSubmit)="register()">
-    <p>Ange:</p>
-    <input type="text" id="name" placeholder="Namn" name="name" [(ngModel)]="enteredName">
-    <input type="email" id="email" placeholder="E-post" name="email" [(ngModel)]="enteredEmail">
-    <input type="tel" id="tel" placeholder="Telefonnummer" name="tel" [(ngModel)]="enteredTel">
-    <input type="number" id="personnummer" placeholder="Personnummer" name="personnummer" [(ngModel)]="enteredPersonalNumber">
-    <input type="password" id="password" placeholder="Lösenord" name="password" [(ngModel)]="enteredPassword">
-    <button type="submit">Registrera</button>
+  <p>Ange:</p>
+
+  <input
+    type="text"
+    id="name"
+    placeholder="Förnamn"
+    name="name"
+    [(ngModel)]="enteredName"
+  />
+  @if(nameFailed()){
+    <p class="error-msg">Vänligen fyll i namn</p>
+  }
+
+  <input
+    type="text"
+    id="surname"
+    placeholder="Efternamn"
+    name="surname"
+    [(ngModel)]="enteredSurname"
+  />
+  @if(surnameFailed()){
+    <p class="error-msg">Vänligen fyll i efternamn</p>
+  }
+
+  <input
+    type="email"
+    id="email"
+    placeholder="E-post"
+    name="email"
+    [(ngModel)]="enteredEmail"
+  />
+  @if(emailFailed()){
+    <p class="error-msg">Vänligen fyll i en korrekt e-postadress</p>
+  }
+
+  <input
+    type="tel"
+    id="tel"
+    placeholder="Telefonnummer"
+    name="tel"
+    [(ngModel)]="enteredTel"
+    (ngModelChange)="onTelChange($event)"
+    inputmode="numeric"
+    maxlength="20"
+  />
+  @if(telFailed()){
+    <p class="error-msg">Vänligen fyll i ett korrekt telefonnummer</p>
+  }
+<input type="text" id="personnummer" placeholder="Personnummer 10 siffror" name="personnummer" [(ngModel)]="enteredPersonalNumber"  (ngModelChange)="onPersonalNumberChange($event)"  inputmode="numeric"  maxlength="10"
+/>
+  @if(personalNumberFailed()){
+    <p class="error-msg">Vänligen fyll i ett korrekt personnummer</p>
+  }
+
+  <input
+    type="text"
+    id="address"
+    placeholder="Adress"
+    name="address"
+    [(ngModel)]="enteredAddress"
+  />
+  @if(addressFailed()){
+    <p class="error-msg">Vänligen fyll i en korrekt adress</p>
+  }
+
+  <input
+    type="password"
+    id="password"
+    placeholder="Lösenord"
+    name="password"
+    [(ngModel)]="enteredPassword"
+  />
+  @if(passFailed()){
+    <p class="error-msg">
+      Lösenordet måste vara minst 8 tecken långt och innehålla minst en siffra samt ett specialtecken
+    </p>
+  }
+
+  <input
+    type="password"
+    id="repetedPassword"
+    placeholder="Upprepa lösenord"
+    name="repetedPassword"
+    [(ngModel)]="repetedPassword"
+  />
+  @if(repetedPassFailed()){
+    <p class="error-msg">De angivna lösenorden stämmer inte överens</p>
+  }
+
+  <button type="submit">Registrera</button>
 </form>
+
+
+
+<!-- <form (ngSubmit)="register()">
+    <p>Ange:</p>
+    <input type="text" id="name" placeholder="Förnamn" name="name" [(ngModel)]="enteredName">
+    @if(nameFailed()){
+       <p class="error-msg">
+            Vänligen fyll i namn
+       </p>
+   }
+    <input type="text" id="surname" placeholder="Efternamn" name="surname" [(ngModel)]="enteredSurname">
+     @if(surnameFailed()){
+        <p class="error-msg">
+            Vänligen fyll i efternamn
+        </p>
+    }
+    <input type="email" id="email" placeholder="E-post" name="email" [(ngModel)]="enteredEmail">
+    @if(emailFailed()){
+        <p class="error-msg">
+            Vänligen fyll i en korrekt e-postadress
+        </p>
+    }
+    <input
+        type="tel"
+        id="tel"
+        placeholder="Telefonnummer"
+        name="tel"
+        [(ngModel)]="enteredTel"
+        inputmode="numeric"
+        pattern="[0-9+\-\s]*"     
+        maxlength="20"             
+    />
+    @if(telFailed()){
+        <p class="error-msg">
+            Vänligen fyll i ett korrekt telefonnummer
+        </p>
+    }
+    <input
+        type="text"  id="personnummer"  placeholder="Personnummer 10 siffror"  name="personnummer"  [(ngModel)]="enteredPersonalNumber"  inputmode="numeric"  pattern="[0-9]*"           maxlength="10"
+    />
+    @if(personalNumberFailed()){
+        <p class="error-msg">
+            Vänligen fyll i ett korrekt personnummer
+        </p>
+    }
+    <input type="text" id="address" placeholder="Adress" name="address" [(ngModel)]="enteredAddress">
+    @if(addressFailed()){
+        <p class="error-msg">
+            Vänligen fyll i en korrekt adress
+        </p>
+    }
+    <input type="password" id="password" placeholder="Lösenord" name="password" [(ngModel)]="enteredPassword">
+    @if(passFailed()){
+        <p class="error-msg">
+            Lösenordet måste vara minst 8 tecken långt och innehålla minst en siffra samt ett specialtecken
+        </p>
+    }
+    <input type="password" id="repetedPassword" placeholder="Upprepa lösenord" name="repetedPassword" [(ngModel)]="repetedPassword">
+    @if(repetedPassFailed()){
+        <p class="error-msg">
+            De angivna lösenorden stämmer inte överens
+        </p>
+    }
+    <button type="submit">Registrera</button>
+</form> -->

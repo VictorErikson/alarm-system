@@ -19,3 +19,4 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withInterceptors([tokenInterceptor]))
   ]
 };
+export const API_BASE_URL = 'https://api.yourdomain.com';

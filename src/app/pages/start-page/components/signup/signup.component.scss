@@ -75,6 +75,12 @@ form {
     color: white;
   }
 
+  .error-msg {
+    color: red;
+    font-size: small;
+    opacity: 97%;
+  }
+
   input {
     padding: 5px 10px;
     width: 100%;
