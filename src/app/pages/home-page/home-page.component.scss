@@ -11,5 +11,48 @@
     align-items: center;
     padding: 40px;
     gap: 40px;
+
+    .unit {
+      border: none;
+      background: #181818;
+      border: 2px solid #898989;
+      border-radius: 10px;
+      width: 600px;
+      height: 300px;
+      transition: transform 0.5s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+      color: #898989;
+      font-size: medium;
+      padding: 20px;
+
+      h2 {
+        font-size: 36px;
+      }
+
+      .top,
+      .bottom {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+      }
+      svg {
+        transition: fill 0.3s ease;
+      }
+
+      &:hover {
+        cursor: pointer;
+        border: 2px solid #ffffff;
+        transform: scale(1.05);
+        background: #2a2a2a;
+        color: #ffffff;
+
+        svg {
+          fill: #ffffff;
+        }
+      }
+    }
   }
 }
