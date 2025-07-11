@@ -33,12 +33,17 @@ export class LoginComponent {
       return;
     }
 
-    this.auth.login(email, password).subscribe(success => {
-      if (success) {
-        this.router.navigate(['/home']);
-      } else {
-        this.loginFailed.set(true);
-      }
-    });
+    //logga navigera OM inlogg lyckas
+
+    // this.auth.login(email, password).subscribe(success => {
+    //   if (success) {
+    //     this.router.navigate(['/home']);
+    //   } else {
+    //     this.loginFailed.set(true);
+    //   }
+    // });
+    console.log(email, password);
+    this.router.navigate(['/home']);
+      
   }
 }

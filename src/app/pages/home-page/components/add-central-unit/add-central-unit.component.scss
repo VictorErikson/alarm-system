@@ -1,0 +1,31 @@
+.unit {
+  background: #181818;
+  border: 2px solid #898989;
+  border-radius: 10px;
+  width: 600px;
+  height: 300px;
+  transition: transform 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  color: #898989;
+  font-size: medium;
+
+  svg {
+    transition: fill 0.3s ease;
+  }
+
+  &:hover {
+    cursor: pointer;
+    border: 2px solid #ffffff;
+    transform: scale(1.05);
+    background: #2a2a2a;
+    color: #ffffff;
+
+    svg {
+      fill: #ffffff;
+    }
+  }
+}

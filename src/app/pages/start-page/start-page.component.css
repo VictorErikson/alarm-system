@@ -1,0 +1,47 @@
+fieldset {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #0f0f0f;
+}
+main .login-popup {
+  background: #181818;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  border-radius: 10px;
+  padding: 30px;
+  min-width: 300px;
+}
+main .login-popup h2 {
+  color: #ffffff;
+}
+main .login-popup .change {
+  display: flex;
+  align-items: baseline;
+}
+main .login-popup .change h3,
+main .login-popup .change button {
+  color: #898989;
+  font-weight: normal;
+  font-size: 14px;
+}
+main .login-popup .change button {
+  background: none;
+  color: #ffffff;
+  margin-left: 5px;
+  border: none;
+}
+main .login-popup .change button:hover {
+  cursor: pointer;
+  color: #3391e4;
+}/*# sourceMappingURL=start-page.component.css.map */

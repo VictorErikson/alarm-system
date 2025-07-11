@@ -1,0 +1,25 @@
+header {
+  width: 100vw;
+  padding: 20px 60px;
+  .between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .right {
+      #logout {
+        background: none;
+        border: none;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      #logout svg {
+        transition: fill 0.3s ease;
+      }
+      #logout:hover svg {
+        fill: #ffffff;
+      }
+    }
+  }
+}

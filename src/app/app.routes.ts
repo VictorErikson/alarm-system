@@ -18,5 +18,10 @@ import { AuthGuard } from './core/auth.guard';
 
 export const routes: Routes = [
   { path: '', component: StartPageComponent },
-  { path: 'home', component: HomePageComponent, canActivate: [AuthGuard] }
+  { path: 'home', component: HomePageComponent }
 ];
+// behöver inloggad
+// export const routes: Routes = [
+//   { path: '', component: StartPageComponent },
+//   { path: 'home', component: HomePageComponent, canActivate: [AuthGuard] }
+// ];

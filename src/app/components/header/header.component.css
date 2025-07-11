@@ -1,0 +1,21 @@
+header {
+  width: 100vw;
+  padding: 40px 60px;
+}
+header .between {
+  display: flex;
+  justify-content: space-between;
+}
+header .between .right #logout {
+  background: none;
+  border: none;
+}
+header .between .right #logout:hover {
+  cursor: pointer;
+}
+header .between .right #logout svg {
+  transition: fill 0.3s ease;
+}
+header .between .right #logout:hover svg {
+  fill: #ffffff;
+}/*# sourceMappingURL=header.component.css.map */

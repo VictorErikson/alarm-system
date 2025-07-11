@@ -24,12 +24,13 @@ import { HttpClient } from '@angular/common/http';
 import { tap, map, catchError } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { API_BASE_URL } from '../app.config';
+import { Router } from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private readonly TOKEN_KEY = 'jwt';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   // login(email: string, password: string): Observable<boolean> {
   //   return this.http
@@ -65,5 +66,6 @@ export class AuthService {
 
   logout(): void {
     sessionStorage.removeItem(this.TOKEN_KEY);
+    this.router.navigate(['/']);
   }
 }
