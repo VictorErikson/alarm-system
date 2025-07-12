@@ -18,8 +18,11 @@ export class ApiService {
    fetch() {
     this.http.get<any[]>(this.urlGet).subscribe(data => {
       this.dataSignal.set(data);
+      console.log("fetched data: ", this.dataSignal());
     });
   }
+
+  //skippa denna?
   // GET data as a signal
   // getDataSignal() {
   //   return toSignal(this.http.get(this.urlGet));
@@ -27,6 +30,7 @@ export class ApiService {
 
   // Manual POST request
   postData(payload: any) {
+    console.log(payload);
     return this.http.post(this.urlPost, payload);
   }
 }

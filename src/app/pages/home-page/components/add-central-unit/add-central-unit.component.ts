@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-add-central-unit',
@@ -8,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AddCentralUnitComponent {
 
+  @Output() showAddUnit = new EventEmitter<void>();
 }

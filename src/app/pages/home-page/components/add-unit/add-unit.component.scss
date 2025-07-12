@@ -1,0 +1,131 @@
+fieldset {
+  display: flex;
+  flex-direction: column;
+}
+
+.addUnitCont {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .addUnit-popup {
+    background: #181818;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    border-radius: 10px;
+    padding: 30px;
+    padding-top: 15px;
+    width: 300px;
+
+    h2 {
+      color: #ffffff;
+    }
+  }
+}
+
+:host {
+  display: block;
+  width: 100%;
+}
+
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.key-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+  color: #898989;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  padding-top: 5px;
+}
+form input {
+  padding: 5px 10px;
+  width: 100%;
+  font-size: small;
+  border: none;
+  border-radius: 3px;
+  background: #111111;
+  color: #898989;
+  padding-left: 35px; /* leave space for the icon */
+  width: 100%;
+  height: 36px;
+  box-sizing: border-box;
+  background: #111;
+  color: #898989;
+  border: none;
+  border-radius: 4px;
+}
+form input:active {
+  border: none;
+}
+form input:focus {
+  outline: none;
+  box-shadow: 0 0 0 0 #007bff; /* custom blue focus ring */
+  color: white;
+}
+form input:-webkit-autofill {
+  -webkit-text-fill-color: #898989 !important;
+  background-color: #111111 !important;
+  -webkit-transition: background-color 1000s ease-in-out 0s;
+  transition: background-color 1000s ease-in-out 0s;
+}
+form .error-msg {
+  color: red;
+  font-size: small;
+}
+form .buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+
+  button {
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    margin-top: 5px;
+    width: 50%;
+
+    &.add {
+      background-color: #0174dc;
+
+      &:hover {
+        cursor: pointer;
+        background: #0164c2;
+      }
+
+      &:active {
+        background-color: #0153a6;
+      }
+    }
+
+    &.cancel {
+      background-color: #e53935;
+
+      &:hover {
+        cursor: pointer;
+        background: #d32f2f;
+      }
+
+      &:active {
+        background-color: #b71c1c;
+      }
+    }
+  }
+}

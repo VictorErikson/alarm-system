@@ -5,18 +5,35 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    .right {
-      #logout {
-        background: none;
+
+    .left {
+      .logo {
         border: none;
+        background: none;
 
         &:hover {
           cursor: pointer;
         }
       }
-      #logout svg {
+    }
+
+    .right {
+      #logout {
+        background: none;
+        border: none;
+        color: #898989;
+        display: flex;
+        align-items: center;
+        font-size: larger;
+        gap: 10px;
         transition: fill 0.3s ease;
+
+        &:hover {
+          cursor: pointer;
+          color: #ffffff;
+        }
       }
+
       #logout:hover svg {
         fill: #ffffff;
       }

@@ -1,0 +1,56 @@
+import { Component, EventEmitter, inject, Output, signal } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { ApiService } from '../../../../services/api.service';
+
+@Component({
+  selector: 'app-add-unit',
+  imports: [FormsModule],
+  templateUrl: './add-unit.component.html',
+  styleUrl: './add-unit.component.scss'
+})
+export class AddUnitComponent {
+  private api = inject(ApiService);
+  // units = this.api.postData;
+
+ 
+  // userId = this.api.getDataSignal.userId;
+  userId = "";
+  
+
+  addUnitFailed = signal(false);
+  emptyField = signal(false);
+  enteredId=signal('');
+
+
+  addUnit() {}
+
+  @Output() showUnits = new EventEmitter<void>();
+
+  addNewUnit(){
+    const id = this.enteredId().trim();
+
+    this.addUnitFailed.set(false);
+    this.emptyField.set(false);
+
+    if (!id){
+      this.emptyField.set(true);
+      return;
+    }
+
+    this.api.postData({ id: id, userId: this.userId}).subscribe({
+      next: (response) => {
+        this.addUnitFailed.set(true);
+        console.log('Response:', response);
+      },
+      error: (err) => {
+        console.error('Error occurred:', err);
+        this.addUnitFailed.set(true);
+      },
+      complete: () => {
+        console.log('Request completed.');
+        this.addUnitFailed.set(true);
+      }
+    });
+
+  }
+}

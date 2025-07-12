@@ -4,7 +4,7 @@
 
   main {
     min-width: 100vw;
-    min-height: 100vh;
+    min-height: calc(100vh - 128px);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -14,6 +14,7 @@
 
     .unit {
       border: none;
+      // background: #0a0a2a;
       background: #181818;
       border: 2px solid #898989;
       border-radius: 10px;
@@ -46,6 +47,7 @@
         cursor: pointer;
         border: 2px solid #ffffff;
         transform: scale(1.05);
+        // background: #101042;
         background: #2a2a2a;
         color: #ffffff;
 
