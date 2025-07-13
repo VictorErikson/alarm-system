@@ -25,6 +25,17 @@ private api = inject(ApiService);
         {
           user: "Ture",
           userId: 1242,  
+          avatar: 1
+        },
+        {
+          user: "Birgitta",
+          userId: 3773,  
+          avatar: 4
+        },
+        {
+          user: "Peter",
+          userId: 3456,  
+          avatar: 1
         }
       ]
     },
@@ -36,10 +47,12 @@ private api = inject(ApiService);
         {
           user: "Victor",
           userId: 98346,  
+          avatar: 6
         },
         {
           user: "Laura",
-          userId: 34776,  
+          userId: 34776, 
+          avatar: 3 
         }
       ]
     }
@@ -97,6 +110,7 @@ private api = inject(ApiService);
   unitUsers: {
     user: string;
     userId: number;
+    avatar: number;
   }[];
 };
 

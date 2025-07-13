@@ -18,8 +18,10 @@ export class AddUnitComponent {
   
 
   addUnitFailed = signal(false);
-  emptyField = signal(false);
+  emptyIdField = signal(false);
+  emptyNameField = signal(false);
   enteredId=signal('');
+  enteredName=signal('');
 
 
   addUnit() {}
@@ -28,16 +30,25 @@ export class AddUnitComponent {
 
   addNewUnit(){
     const id = this.enteredId().trim();
+    const name = this.enteredName().trim();
 
     this.addUnitFailed.set(false);
-    this.emptyField.set(false);
+    this.emptyIdField.set(false);
+    this.emptyNameField.set(false);
 
-    if (!id){
-      this.emptyField.set(true);
+    if (!id || !name){
+      if(!id){
+        this.emptyIdField.set(true);
+      }
+      if (!name){
+        this.emptyNameField.set(true);
+
+      }
       return;
     }
+    
 
-    this.api.postData({ id: id, userId: this.userId}).subscribe({
+    this.api.postData({ id, userId: this.userId, name}).subscribe({
       next: (response) => {
         this.addUnitFailed.set(true);
         console.log('Response:', response);

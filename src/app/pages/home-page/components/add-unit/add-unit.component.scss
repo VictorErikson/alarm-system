@@ -88,7 +88,9 @@ form input:-webkit-autofill {
 form .error-msg {
   color: red;
   font-size: small;
+  padding-top: 8px;
 }
+
 form .buttons {
   display: flex;
   justify-content: space-between;
