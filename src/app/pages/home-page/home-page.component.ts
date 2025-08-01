@@ -5,11 +5,12 @@ import { HeaderComponent } from "../../components/header/header.component";
 import { ApiService } from '../../services/api.service';
 import { EditUnitComponent } from './components/edit-unit/edit-unit.component';
 import { AddUnitComponent } from './components/add-unit/add-unit.component';
+import { EditUserComponent } from "./components/edit-unit/edit-user/edit-user.component";
 
 @Component({
   standalone: true,
   selector: 'app-home-page',
-  imports: [CommonModule, AddCentralUnitComponent, HeaderComponent, EditUnitComponent, AddUnitComponent],
+  imports: [CommonModule, AddCentralUnitComponent, HeaderComponent, EditUnitComponent, AddUnitComponent, EditUserComponent],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss'
 })
@@ -25,17 +26,23 @@ private api = inject(ApiService);
         {
           user: "Ture",
           userId: 1242,  
-          avatar: 1
+          avatar: 1,
+          pincode: "1234",
+          tag: true
         },
         {
           user: "Birgitta",
           userId: 3773,  
-          avatar: 4
+          avatar: 4,
+          pincode: "9431",
+          tag: false
         },
         {
           user: "Peter",
           userId: 3456,  
-          avatar: 1
+          avatar: 1,
+          pincode: "0224",
+          tag: true
         }
       ]
     },
@@ -47,12 +54,16 @@ private api = inject(ApiService);
         {
           user: "Victor",
           userId: 98346,  
-          avatar: 6
+          avatar: 6,
+          pincode: "1234",
+          tag: true
         },
         {
           user: "Laura",
           userId: 34776, 
-          avatar: 3 
+          avatar: 3,
+          pincode: "1234",
+          tag: true
         }
       ]
     }
@@ -78,8 +89,9 @@ private api = inject(ApiService);
 
   //switching DOM-components
 
-  currentView = signal<'units' | 'editUnit' | 'addUnit'>('units');
+  currentView = signal<'units' | 'editUnit' | 'addUnit' | 'editUser'>('units');
   selectedUnit = signal<Unit | null>(null);
+  selectedUser = signal<{ userId:number; user:string; avatar:number; pincode: string; tag:boolean;} | null>(null);
   
   showUnits() {
     this.currentView.set('units');
@@ -94,7 +106,10 @@ private api = inject(ApiService);
     this.currentView.set('addUnit');
   }
 
-
+  showEditUser(user: { userId: number; user: string; avatar: number; pincode: string; tag: boolean; }) {
+    this.selectedUser.set(user);
+    this.currentView.set('editUser');
+  }
 
 
 
@@ -111,6 +126,8 @@ private api = inject(ApiService);
     user: string;
     userId: number;
     avatar: number;
+    pincode: string;
+    tag: boolean;
   }[];
 };
 

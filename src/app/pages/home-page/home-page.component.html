@@ -45,11 +45,23 @@
         @case('editUnit') {
             <app-edit-unit 
             (showUnits)="showUnits()"
+            (editUser)="showEditUser($event)"
             [unit]="selectedUnit()!">
         </app-edit-unit>
         }
         @case('addUnit') {
-            <app-add-unit (showUnits)="showUnits()"></app-add-unit>
+            <app-add-unit 
+            (showUnits)="showUnits()"
+            
+            ></app-add-unit>
+        }
+        @case('editUser') {
+            <app-edit-user 
+                [user]="selectedUser()!" 
+                [unit]="selectedUnit()!"
+                (showUnits)="showUnits()"
+                (showEditUnit)="showEditUnit($event)">
+            </app-edit-user>
         }
     }
     </main>

@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class EditUnitComponent {
   @Output() showUnits = new EventEmitter<void>();
+  @Output() editUser = new EventEmitter<{ userId: number; user: string; avatar: number; pincode: string; tag: boolean; }>();
   @Input() unit!: Unit;
   // newUnit = signal(this.unit)
   editUnitFailed = signal(false);
@@ -19,6 +20,7 @@ export class EditUnitComponent {
   // enteredUserName: string = '';
   // enteredName=this.newUnit.unitName;
   editedUserNames: { [userId: number]: string } = {};
+  
   
 
   ngOnInit(): void {
