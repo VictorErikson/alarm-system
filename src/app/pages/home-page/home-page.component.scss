@@ -38,6 +38,21 @@
         display: flex;
         justify-content: space-between;
         width: 100%;
+
+        .right {
+          height: 80px;
+          width: 80px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: #43a047;
+          border-radius: 9999px;
+          border: 3px #898989 solid;
+
+          &.locked {
+            background: #e53935;
+          }
+        }
       }
       svg {
         transition: fill 0.3s ease;
