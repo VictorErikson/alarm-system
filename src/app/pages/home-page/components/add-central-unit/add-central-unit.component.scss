@@ -2,8 +2,8 @@
   background: #181818;
   border: 2px solid #898989;
   border-radius: 10px;
-  width: 600px;
-  height: 300px;
+  width: 400px;
+  height: 200px;
   transition: transform 0.5s ease;
   display: flex;
   flex-direction: column;
@@ -20,7 +20,6 @@
   &:hover {
     cursor: pointer;
     border: 2px solid #ffffff;
-    transform: scale(1.05);
     background: #2a2a2a;
     color: #ffffff;
 

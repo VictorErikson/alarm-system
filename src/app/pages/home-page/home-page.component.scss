@@ -19,7 +19,7 @@
       border: 2px solid #898989;
       border-radius: 10px;
       width: 400px;
-      max-height: 300px;
+      height: 200px;
       transition: transform 0.5s ease;
       display: flex;
       flex-direction: column;
@@ -29,7 +29,7 @@
       color: #898989;
       font-size: medium;
       padding: 20px;
-      gap: 50px;
+      // gap: 50px;
 
       h2 {
         font-size: 36px;
@@ -41,108 +41,20 @@
         justify-content: space-between;
         width: 100%;
 
-        // .right {
-        //   height: 80px;
-        //   width: 80px;
-        //   display: flex;
-        //   justify-content: center;
-        //   align-items: center;
-        //   background: #43a047;
-        //   border-radius: 9999px;
-        //   outline: 6px #898989 solid;
-        //   box-shadow: 
-        //   inset 5px 5px 10px rgba(0,0,0,0.3);
-        //   // inset -5px -5px 10px rgba(255,255,255,0.6);
+        $green: #43a047;
+        $red:   #e53935;
 
-        //   &.locked {
-        //     background: #e53935;
-        //   }
-
-        //   &:hover {
-        //     svg {
-        //       fill: #ffffff;
-        //     }
-        //     transition: fill 0.8s ease;
-        //     transform: scale(1.08);
-        //     border: 4px white solid;
-
-        //   }
-        // }
-        .right {
-          height: 80px;
-          width: 80px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          background: #43a047;
-          border-radius: 9999px;
-        
-          /* outside line that doesn't shift layout */
-          outline: 4px solid #898989;
-          outline-offset: 0;
-        
-          /* RAISED (default): outer shadow + subtle inner highlight */
-          box-shadow:
-            0 10px 18px rgba(0,0,0,0.35),
-            0 3px 6px rgba(0,0,0,0.2),
-            inset 0 2px 0 rgba(255,255,255,0.25);
-        
-          transition:
-            transform 120ms ease,
-            box-shadow 120ms ease,
-            outline-offset 120ms ease,
-            border-color 120ms ease;
-        
-          // svg { transition: fill 0.8s ease; }
-        
-          &.locked { background: #e53935; }
-        
-          &:hover {
-            // transform: scale(1.08);
-            outline: 4px solid #dbdbdb;
-            // border: 4px white solid; /* purely visual; outline stays outside */
-            svg { fill: #dbdbdb; }
-            background: #2e6b31;
-            &.locked { background: rgb(173, 10, 7); }
-          }
-        
-          /* PRESSED: on mouse/touch down */
-          &:active {
-            transform: translateY(1px) scale(0.98);
-            outline-offset: 0.2px; /* nudge the outline outward a bit */
-            border-color: white;
-        
-            /* Inset shadows = “pressed-in” look; kill outer shadows */
-            box-shadow:
-              inset 6px 6px 12px rgba(0,0,0,0.35),
-              inset -6px -6px 12px rgba(255,255,255,0.55);
-          }
-        
-          /* Keyboard focus ring (accessibility) */
-          &:focus-visible {
-            outline: 6px solid #ffffff;
-            outline-offset: 4px;
-          }
-        
-          /* Respect reduced motion */
-          @media (prefers-reduced-motion: reduce) {
-            transition: none;
-          }
-        
+        @mixin btn-grad($c) {
+          background:
+            radial-gradient(120% 100% at 30% 25%, rgba(255,255,255,.22) 0%, rgba(255,255,255,0) 35%),
+            linear-gradient(135deg, lighten($c,8%) 0%, $c 45%, darken($c,10%) 100%);
         }
-      // svg {
-      //   // transition: fill 0.3s ease;
-      // }
 
-      }
-
-      .bottom {
-        .left{
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: 8px;
-        }  
+        @mixin btn-grad-hover($c) {
+          background:
+            radial-gradient(120% 100% at 35% 20%, rgba(255,255,255,.12) 0%, rgba(255,255,255,0) 40%),
+            linear-gradient(135deg, darken($c,5%) 0%, darken($c,12%) 60%, darken($c,18%) 100%);
+        }
         .erase-btn{
           display: flex;          
           align-items: center;
@@ -191,6 +103,59 @@
             background-color: #b71c1c;
           }
         }
+
+        .right {
+          height: 60px; width: 60px; display: flex; justify-content: center; align-items: center;
+          border-radius: 9999px;
+          svg { fill: #dbdbdb; }
+
+          @include btn-grad($green);            /* default green gradient */
+          &.locked { @include btn-grad($red); } /* red gradient when locked */
+
+          outline: 4px solid #898989; outline-offset: 0;
+          box-shadow:
+            0 10px 18px rgba(0,0,0,.35),
+            0 3px 6px rgba(0,0,0,.2),
+            inset 0 2px 0 rgba(255,255,255,.25);
+
+          transition:
+            transform 120ms ease,
+            box-shadow 120ms ease,
+            background 120ms ease,
+            outline-offset 120ms ease,
+            border-color 120ms ease;
+
+          &:hover {
+            // outline: 4px solid #dbdbdb;
+            svg { fill: #dbdbdb; }
+            @include btn-grad-hover($green);
+            &.locked { @include btn-grad-hover($red); }
+          }
+
+          &:active {
+            transform: translateY(1px) scale(.98);
+            outline-offset: .2px;
+            box-shadow:
+              inset 6px 6px 12px rgba(0,0,0,.35),
+              inset -6px -6px 12px rgba(255,255,255,.55);
+          }
+
+          &:focus-visible { outline: 6px solid #fff; outline-offset: 4px; }
+
+          @media (prefers-reduced-motion: reduce) { transition: none; }
+}
+       
+
+      }
+
+      .bottom {
+        .left{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+        }  
+        
       }
 
       &:hover {
