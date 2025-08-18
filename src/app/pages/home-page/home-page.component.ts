@@ -15,6 +15,7 @@ import { EditUserComponent } from "./components/edit-unit/edit-user/edit-user.co
   styleUrl: './home-page.component.scss'
 })
 export class HomePageComponent {
+  hover: string | null = null
 
 private api = inject(ApiService);
   units = signal([
