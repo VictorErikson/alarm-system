@@ -42,7 +42,7 @@ export class AuthService {
   //     );
   // }
   login(email: string, password: string): Observable<boolean> {
-  const url = `${API_BASE_URL}/api/auth/login`;
+  const url = `${API_BASE_URL}/auth/login`;
   const body = { email, password };
   console.log('HTTP', 'POST', url, body);
   return this.http

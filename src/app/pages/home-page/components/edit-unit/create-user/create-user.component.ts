@@ -5,13 +5,13 @@ import { Unit } from '../../../home-page.component';
 import { SvgAvatarComponent } from "../../../../../shared/svg-avatar.component";
 
 @Component({
-  standalone: true,
-  selector: 'app-edit-user',
+  selector: 'app-create-user',
   imports: [CommonModule, FormsModule, SvgAvatarComponent],
-  templateUrl: './edit-user.component.html',
-  styleUrl: './edit-user.component.scss'
+  templateUrl: './create-user.component.html',
+  styleUrl: './create-user.component.scss'
 })
-export class EditUserComponent {
+export class CreateUserComponent {
+
  @Input() user!: {
     userId: number;
     user: string;
@@ -26,8 +26,7 @@ export class EditUserComponent {
   showPassword = false;
   enteredName: string = '';
   enteredPass: string = '';
-  enteredTagId: string = '';
-  selectedAvatar: number = 0;
+  selectedAvatar: number = 1;
   dropdownOpen = false;
   tag: boolean = false;
 
@@ -61,7 +60,7 @@ export class EditUserComponent {
     this.tag = this.user.tag;
   }
 
-  editUser() {
+  addUser() {
     
   }
 }

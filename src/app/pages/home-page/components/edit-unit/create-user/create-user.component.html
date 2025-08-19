@@ -13,8 +13,8 @@
             style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;"><g><g transform="matrix(1000,0,0,1000,5985.47,4287.95)"></g><text x="-57.617px" y="4287.95px" style="font-family:'Corbel-Bold', 'Corbel';font-weight:700;font-size:1000px;fill:#fff;">S<tspan x="734.531px 1517.4px 2316.88px 3232.07px 4075px 4565.88px 5351.19px " y="4287.95px 4287.95px 4287.95px 4287.95px 4287.95px 4287.95px 4287.95px ">ECURITY</tspan></text><g><circle cx="970.886" cy="2331.64" r="195.446" style="fill:#3180c3;"/><path d="M970.886,2331.64c663.79,473.329 2363.3,-150.811 2926.68,-622.21c-66.43,210.433 -272.215,529.284 -526.201,817.656c-268.686,305.063 -468.453,449.315 -468.453,449.315c0,-0 -461.811,-389.4 -568.243,-560.763" style="fill:none;stroke:#3180c3;stroke-width:168.27px;"/></g><g><circle cx="4938.9" cy="195.446" r="195.446" style="fill:#4fc9f0;"/><path d="M4931.8,197.469c-441.505,894.048 -1728.05,1640.93 -2873.46,1846.96c-394.853,-673.296 -453.72,-1118.48 -501.55,-1390.74c658.578,-246.507 820.463,-283.299 1265.65,-309.054c566.598,-18.396 1273.01,224.432 1409.14,312.733c-25.754,165.564 -89.935,442.21 -89.935,442.21" 
             style="fill:none;stroke:#4fc9f0;stroke-width:168.27px;"/></g></g>
         </svg>
-        <h2>Redigera {{user.user}}</h2>
-        <form (ngSubmit)="editUser()">
+        <h2>Skapa ny användare</h2>
+        <form (ngSubmit)="addUser()">
             <div class="input-section">
                 <label for="name" class="label">Namn:</label>
                 <div class="input-erase-wrapper">
@@ -28,7 +28,7 @@
                             fill="#898989">
                             <path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/>
                         </svg>
-                        <input type="text" id="name" name="unitName" placeholder="Ange användares namn" [(ngModel)]="enteredName">
+                        <input type="text" id="name" name="unitName" placeholder="Ange namn">
                     </div>
                 </div>
                 <label for="name" class="label">Lösenord:</label>
@@ -43,7 +43,7 @@
                             fill="#898989">
                             <path d="M240-80q-33 0-56.5-23.5T160-160v-400q0-33 23.5-56.5T240-640h40v-80q0-83 58.5-141.5T480-920q83 0 141.5 58.5T680-720v80h40q33 0 56.5 23.5T800-560v400q0 33-23.5 56.5T720-80H240Zm0-80h480v-400H240v400Zm240-120q33 0 56.5-23.5T560-360q0-33-23.5-56.5T480-440q-33 0-56.5 23.5T400-360q0 33 23.5 56.5T480-280ZM360-640h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/>
                         </svg>
-                        <input [type]="showPassword ? 'text' : 'password'" id="password" name="unitPass" placeholder="Ange användares lösenord" [(ngModel)]="enteredPass">
+                        <input [type]="showPassword ? 'text' : 'password'" id="password" name="unitPass" placeholder="Ange lösenord" [(ngModel)]="enteredPass">
                         <button class="passwordBtn" type="button" (click)="showPassword = !showPassword" aria-label="Växla lösenords synlighet">
                             @if(showPassword){
                                 <svg 
@@ -81,7 +81,7 @@
                             fill="#898989">
                             <path d="M856-390 570-104q-12 12-27 18t-30 6q-15 0-30-6t-27-18L103-457q-11-11-17-25.5T80-513v-287q0-33 23.5-56.5T160-880h287q16 0 31 6.5t26 17.5l352 353q12 12 17.5 27t5.5 30q0 15-5.5 29.5T856-390ZM513-160l286-286-353-354H160v286l353 354ZM260-640q25 0 42.5-17.5T320-700q0-25-17.5-42.5T260-760q-25 0-42.5 17.5T200-700q0 25 17.5 42.5T260-640Zm220 160Z"/>
                         </svg>
-                        <input type="text" id="tag" name="tag" placeholder="Ange tagg-id" [(ngModel)]="enteredTagId">
+                        <input type="text" id="name" name="unitName" placeholder="Ange tagg-id">
                     </div>
                 </div>
                 <div class="avatar-dropdown">
@@ -121,6 +121,7 @@
  
                     </ul>
                 </div>
+                
             </div>
             
 

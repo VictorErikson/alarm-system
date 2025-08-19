@@ -6,11 +6,13 @@ import { ApiService } from '../../services/api.service';
 import { EditUnitComponent } from './components/edit-unit/edit-unit.component';
 import { AddUnitComponent } from './components/add-unit/add-unit.component';
 import { EditUserComponent } from "./components/edit-unit/edit-user/edit-user.component";
+import { CreateUserComponent } from './components/edit-unit/create-user/create-user.component';
+
 
 @Component({
   standalone: true,
   selector: 'app-home-page',
-  imports: [CommonModule, AddCentralUnitComponent, HeaderComponent, EditUnitComponent, AddUnitComponent, EditUserComponent],
+  imports: [CommonModule, AddCentralUnitComponent, HeaderComponent, EditUnitComponent, AddUnitComponent, EditUserComponent, CreateUserComponent],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss'
 })
@@ -90,7 +92,7 @@ private api = inject(ApiService);
 
   //switching DOM-components
 
-  currentView = signal<'units' | 'editUnit' | 'addUnit' | 'editUser'>('units');
+  currentView = signal<'units' | 'editUnit' | 'addUnit' | 'editUser' | 'createUser'>('units');
   selectedUnit = signal<Unit | null>(null);
   selectedUser = signal<{ userId:number; user:string; avatar:number; pincode: string; tag:boolean;} | null>(null);
   
@@ -110,6 +112,10 @@ private api = inject(ApiService);
   showEditUser(user: { userId: number; user: string; avatar: number; pincode: string; tag: boolean; }) {
     this.selectedUser.set(user);
     this.currentView.set('editUser');
+  }
+
+  showAddUser() {
+    this.currentView.set('createUser');
   }
 
 

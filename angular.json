@@ -67,7 +67,8 @@
               "buildTarget": "alarm-system:build:production"
             },
             "development": {
-              "buildTarget": "alarm-system:build:development"
+              "buildTarget": "alarm-system:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

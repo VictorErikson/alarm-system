@@ -35,15 +35,16 @@ export class LoginComponent {
 
     //logga navigera OM inlogg lyckas
 
-    // this.auth.login(email, password).subscribe(success => {
-    //   if (success) {
-    //     this.router.navigate(['/home']);
-    //   } else {
-    //     this.loginFailed.set(true);
-    //   }
-    // });
-    console.log(email, password);
-    this.router.navigate(['/home']);
+    this.auth.login(email, password).subscribe(success => {
+      console.log(email, password);
+      if (success) {
+        this.router.navigate(['/home']);
+      } else {
+        this.loginFailed.set(true);
+      }
+    });
+    // console.log(email, password);
+    // this.router.navigate(['/home']);
       
   }
 }

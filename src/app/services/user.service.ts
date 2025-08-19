@@ -19,7 +19,7 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   signup(data: SignupDto): Observable<any> {
-    const url = `${API_BASE_URL}/api/auth/signup`;
+    const url = `${API_BASE_URL}/auth/signup`;
     console.log('HTTP', 'POST', url, data);
     return this.http.post(url, data);
   }

@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './edit-unit.component.scss'
 })
 export class EditUnitComponent {
+  @Output() showAddUser = new EventEmitter<void>();
   @Output() showUnits = new EventEmitter<void>();
   @Output() editUser = new EventEmitter<{ userId: number; user: string; avatar: number; pincode: string; tag: boolean; }>();
   @Input() unit!: Unit;
@@ -35,4 +36,5 @@ export class EditUnitComponent {
   editUnit() {
     
   }
+ 
 }

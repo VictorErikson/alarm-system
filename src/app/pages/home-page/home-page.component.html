@@ -8,7 +8,7 @@
                         <button class="unit" aria-label="Enhet" (click)="showEditUnit(unit)">
                             <div class="top">
                                 <h2 class="unitName">{{unit.unitName}}</h2>
-                                <button class="erase-btn" (mouseenter)="hover = unit.unitName" (mouseleave)="hover = null" (focus)="hover = unit.unitName" (blur)="hover = null">
+                                <button class="erase-btn" aria-label="Radera enhet" (mouseenter)="hover = unit.unitName" (mouseleave)="hover = null" (focus)="hover = unit.unitName" (blur)="hover = null">
                                     <svg 
                                         *ngIf="hover === unit.unitName"
                                         class="warning"
@@ -86,6 +86,7 @@
         @case('editUnit') {
             <app-edit-unit 
             (showUnits)="showUnits()"
+            (showAddUser)="showAddUser()"
             (editUser)="showEditUser($event)"
             [unit]="selectedUnit()!">
         </app-edit-unit>
@@ -103,6 +104,12 @@
                 (showUnits)="showUnits()"
                 (showEditUnit)="showEditUnit($event)">
             </app-edit-user>
+        }
+        @case('createUser') {
+            <app-create-user
+                [unit]="selectedUnit()!"
+                (showEditUnit)="showEditUnit($event)">
+            </app-create-user>
         }
     }
     </main>
