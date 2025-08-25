@@ -47,14 +47,12 @@
   display: block;
   width: 100%;
 }
-.password-wrapper,
-.email-wrapper {
+.wrapper {
   position: relative;
   width: 100%;
 }
 
-.email-icon,
-.password-icon {
+.icon {
   position: absolute;
   left: 10px;
   top: 50%;
@@ -96,6 +94,7 @@ form {
     color: #898989;
     border: none;
     border-radius: 4px;
+    padding-left: 35px;
 
     &:active {
       border: none;
