@@ -14,7 +14,8 @@ export class AddUnitComponent {
 
  
   // userId = this.api.getDataSignal.userId;
-  userId = "";
+  // userId = "";
+  token = sessionStorage.getItem("jwt");
   
 
   addUnitFailed = signal(false);
@@ -47,21 +48,32 @@ export class AddUnitComponent {
       return;
     }
     
-
-    this.api.postData({ id, userId: this.userId, name}).subscribe({
-      next: (response) => {
-        this.addUnitFailed.set(true);
+    // console.log(`{serial: ${id}, token: ${this.token}, name: ${name}}`);
+    this.api.postCU({ serial: id, token: this.token, name }).subscribe({
+      next: (response: string) => {
+        this.addUnitFailed.set(false);
         console.log('Response:', response);
+        this.showUnits.emit()
       },
       error: (err) => {
         console.error('Error occurred:', err);
         this.addUnitFailed.set(true);
-      },
-      complete: () => {
-        console.log('Request completed.');
-        this.addUnitFailed.set(true);
       }
     });
+    // this.api.postCU({ "serial": id, "token": this.token, "name": name}).subscribe({
+    //   next: (response) => {
+    //     this.addUnitFailed.set(false);
+    //     console.log('Response:', response);
+    //   },
+    //   error: (err) => {
+    //     console.error('Error occurred:', err);
+    //     this.addUnitFailed.set(true);
+    //   },
+    //   complete: () => {
+    //     console.log('Request completed.');
+    //     this.addUnitFailed.set(false);
+    //   }
+    // });
 
   }
 }

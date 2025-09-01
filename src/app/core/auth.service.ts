@@ -44,12 +44,12 @@ export class AuthService {
   login(email: string, password: string): Observable<boolean> {
   const url = `${API_BASE_URL}/auth/login`;
   const body = { email, password };
-  console.log('HTTP', 'POST', url, body);
+  // console.log('HTTP', 'POST', url, body);
   return this.http
     .post<{ token: string }>(url, body)
     .pipe(
       tap(res => {
-        console.log('← response token:', res.token);
+        // console.log('← response token:', res.token);
         sessionStorage.setItem(this.TOKEN_KEY, res.token);
       }),
       map(() => true),

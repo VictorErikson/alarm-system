@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { APIService } from './api.service';
+import { ApiService } from './api.service';
 
 describe('APIService', () => {
-  let service: APIService;
+  let service: ApiService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(APIService);
+    service = TestBed.inject(ApiService);
   });
 
   it('should be created', () => {

@@ -36,7 +36,7 @@ export class LoginComponent {
     //logga navigera OM inlogg lyckas
 
     this.auth.login(email, password).subscribe(success => {
-      console.log(email, password);
+      // console.log(email, password);
       if (success) {
         this.router.navigate(['/home']);
       } else {

@@ -5,7 +5,6 @@ import { API_BASE_URL } from '../app.config';
 
 export interface SignupDto {
   name: string;
-  surname: string;
   email: string;
   phone: string;
   personalNumber: string;
@@ -18,11 +17,20 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
-  signup(data: SignupDto): Observable<any> {
-    const url = `${API_BASE_URL}/auth/signup`;
+  signup(data: SignupDto): Observable<string> {
+    const url = `${API_BASE_URL}/auth/register`;
     console.log('HTTP', 'POST', url, data);
-    return this.http.post(url, data);
+    return this.http.post(url, data, {
+      responseType: 'text' as const,     // <-- expect plain text
+      // headers: { Accept: 'text/plain' } // (optional) if server sets non-JSON content-type
+    });
   }
+  // signup(data: SignupDto): Observable<any> {
+
+  //   const url = `${API_BASE_URL}/auth/register`;
+  //   console.log('HTTP', 'POST', url, data);
+  //   return this.http.post(url, data);
+  // }
   // signup(data: SignupDto): Observable<any> {
   //   return this.http.post(`${API_BASE_URL}/api/auth/signup`, data);
   // }
