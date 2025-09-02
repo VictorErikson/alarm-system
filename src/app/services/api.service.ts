@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 export class ApiService {
   //private readonly urlGet = `${API_BASE_URL}/api/get`;
-  private readonly urlGet = `https://jsonplaceholder.typicode.com/users`;
+  private readonly urlGet = `${API_BASE_URL}/central-units/customer/units`;
   private readonly urlPost = `${API_BASE_URL}/api/post`;
   private readonly urlPostCU = `${API_BASE_URL}/central-units/register`;
   private dataSignal = signal<any[]>([]);

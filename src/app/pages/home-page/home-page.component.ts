@@ -19,64 +19,62 @@ import { CreateUserComponent } from './components/edit-unit/create-user/create-u
 export class HomePageComponent {
   hover: string | null = null
 
-private api = inject(ApiService);
-  units = signal([
-    {
-      unitId: 123234,
-      unitName: "Frihamnen",
-      locked: true,
-      unitUsers: [
-        {
-          user: "Ture",
-          userId: 1242,  
-          avatar: 1,
-          pincode: "1234",
-          tag: true
-        },
-        {
-          user: "Birgitta",
-          userId: 3773,  
-          avatar: 4,
-          pincode: "9431",
-          tag: false
-        },
-        {
-          user: "Peter",
-          userId: 3456,  
-          avatar: 1,
-          pincode: "0224",
-          tag: true
-        }
-      ]
-    },
-    {
-      unitId: 24343,
-      unitName: "Liljeholmen",
-      locked: false,
-      unitUsers: [
-        {
-          user: "Victor",
-          userId: 98346,  
-          avatar: 6,
-          pincode: "1234",
-          tag: true
-        },
-        {
-          user: "Laura",
-          userId: 34776, 
-          avatar: 3,
-          pincode: "1234",
-          tag: true
-        }
-      ]
-    }
-  ]);
+  private api = inject(ApiService);
+  // units = signal([
+  //   {
+  //     unitId: 123234,
+  //     unitName: "Frihamnen",
+  //     locked: true,
+  //     unitUsers: [
+  //       {
+  //         user: "Ture",
+  //         userId: 1242,  
+  //         avatar: 1,
+  //         pincode: "1234",
+  //         tag: true
+  //       },
+  //       {
+  //         user: "Birgitta",
+  //         userId: 3773,  
+  //         avatar: 4,
+  //         pincode: "9431",
+  //         tag: false
+  //       },
+  //       {
+  //         user: "Peter",
+  //         userId: 3456,  
+  //         avatar: 1,
+  //         pincode: "0224",
+  //         tag: true
+  //       }
+  //     ]
+  //   },
+  //   {
+  //     unitId: 24343,
+  //     unitName: "Liljeholmen",
+  //     locked: false,
+  //     unitUsers: [
+  //       {
+  //         user: "Victor",
+  //         userId: 98346,  
+  //         avatar: 6,
+  //         pincode: "1234",
+  //         tag: true
+  //       },
+  //       {
+  //         user: "Laura",
+  //         userId: 34776, 
+  //         avatar: 3,
+  //         pincode: "1234",
+  //         tag: true
+  //       }
+  //     ]
+  //   }
+  // ]);
 
  
-  // units = this.api.getDataSignal;
-  //borde vara såhär typ?
-  // units = this.api.getDataSignal.units;
-  // userId = this.api.getDataSignal.userId
+  units = this.api.getDataSignal;
+
 
 
   private destroyRef = inject(DestroyRef);
@@ -88,6 +86,10 @@ private api = inject(ApiService);
     }, 30_000);
 
     this.destroyRef.onDestroy(() => clearInterval(this.intervalId));
+  }
+
+  ngOnInit() {
+    this.api.fetch();
   }
 
   //switching DOM-components
@@ -127,9 +129,9 @@ private api = inject(ApiService);
 
  export type Unit = {
   unitId: number;
-  unitName: string;
+  name: string;
   locked: boolean;
-  unitUsers: {
+  users: {
     user: string;
     userId: number;
     avatar: number;

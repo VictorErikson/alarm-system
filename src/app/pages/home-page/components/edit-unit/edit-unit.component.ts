@@ -25,9 +25,9 @@ export class EditUnitComponent {
   
 
   ngOnInit(): void {
-    this.enteredName = this.unit.unitName;
+    this.enteredName = this.unit.name;
 
-    this.unit.unitUsers.forEach(user => {
+    this.unit?.users?.forEach(user => {
       this.editedUserNames[user.userId] = user.user;
     });
 

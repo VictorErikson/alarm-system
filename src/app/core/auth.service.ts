@@ -49,7 +49,7 @@ export class AuthService {
     .post<{ token: string }>(url, body)
     .pipe(
       tap(res => {
-        // console.log('← response token:', res.token);
+        console.log('← response token:', res.token);
         sessionStorage.setItem(this.TOKEN_KEY, res.token);
       }),
       map(() => true),
